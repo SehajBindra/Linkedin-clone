@@ -26,7 +26,7 @@ const Home = (props) => {
 };
 
 const Container = styled.div`
-  padding: 8px;
+  padding: 80px;
   max-width: 100%;
 `;
 
