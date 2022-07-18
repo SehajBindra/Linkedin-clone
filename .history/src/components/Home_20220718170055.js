@@ -57,7 +57,7 @@ const Section = styled.section`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 40px 8px;
+    padding: 0 5px;
   }
 `;
 
@@ -73,7 +73,7 @@ const Layout = styled.div`
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
-    padding: 0 5px;
+    padding: 10px 5px;
   }
 `;
 export default Home;

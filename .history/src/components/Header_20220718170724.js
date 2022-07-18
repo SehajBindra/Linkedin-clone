@@ -117,7 +117,7 @@ const Header = (props) => {
             <User>
               <a>
                 <img src={userPhoto} alt="" />
-                <span>Me</span>
+                <span>{userName}</span>
                 <img src="/images/down-icon.svg" alt="" />
               </a>
 
@@ -267,15 +267,11 @@ const NavList = styled.li`
       display: flex;
       align-items: center;
       text-align: center;
-    }
 
       @media (max-width: 768px) {
-        min-width: 60px;
-        line-height: 1.5;
-        min-height: 52px;
-        font-size: 12px;
+        /* min-width: 70px; */
       }
-    
+    }
   }
 
   &:hover,

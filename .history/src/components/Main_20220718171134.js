@@ -136,7 +136,7 @@ const ShareBox = styled(CommonCard)`
     button {
       outline: none;
       font-size: 14px;
-      min-height: 48px;
+      min-height: 40px;
       background-color: transparent;
       line-height: 1.5;
       color: rgba(0, 0, 0, 0.6);
@@ -183,7 +183,7 @@ const ShareBox = styled(CommonCard)`
 
       button {
         img {
-          margin: 0 4px 0 0px;
+          margin: 0 4px 0 -2px;
         }
         span {
           color: #70b5f9;

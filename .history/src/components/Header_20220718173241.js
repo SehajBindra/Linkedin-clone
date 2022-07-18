@@ -270,10 +270,9 @@ const NavList = styled.li`
     }
 
       @media (max-width: 768px) {
-        min-width: 60px;
+        min-width: 70px;
         line-height: 1.5;
-        min-height: 52px;
-        font-size: 12px;
+        min-height: 42px;
       }
     
   }

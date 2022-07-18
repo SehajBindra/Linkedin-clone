@@ -165,7 +165,7 @@ const ShareBox = styled(CommonCard)`
       }
 
       button {
-        margin: 4px 0;
+        
         flex-grow: 1;
         border-radius: 35px;
         padding-left: 16px;
