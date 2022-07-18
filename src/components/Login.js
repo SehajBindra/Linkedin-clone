@@ -66,7 +66,7 @@ const Login = (props) => {
         </a>
         <div>
           <Join>Join Now</Join>
-          <Signin>Sign In</Signin>
+          <Signin onClick={handleAuth}>Sign In</Signin>
         </div>
       </Nav>
 
@@ -92,7 +92,7 @@ const Container = styled.div`
 `;
 
 const Nav = styled.nav`
-  max-width: 1128px;
+  max-width: 80rem;
   margin: auto;
   padding: 12px 0px 16px;
   display: flex;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { auth, provider } from "../firebase";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup } from "@firebase/auth";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -14,7 +14,7 @@ import { useHistory } from "react-router-dom";
 
 const Login = (props) => {
   const dispatch = useDispatch();
-
+  const history = useHistory();
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
 
@@ -22,6 +22,7 @@ const Login = (props) => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUser(user);
+        history.push("/home");
       }
     });
   }, [userName]);
@@ -65,7 +66,7 @@ const Login = (props) => {
         </a>
         <div>
           <Join>Join Now</Join>
-          <Signin>Sign In</Signin>
+          <Signin onClick={handleAuth}>Sign In</Signin>
         </div>
       </Nav>
 
@@ -75,6 +76,7 @@ const Login = (props) => {
           <img src="/images/login-hero.svg" alt="" />
         </Hero>
         <Form>
+          {!userName}
           <Google onClick={handleAuth}>
             <img src="/images/google.svg" alt="" />
             Signin With google

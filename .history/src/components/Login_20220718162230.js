@@ -1,6 +1,63 @@
 import styled from "styled-components";
 
+import { auth, provider } from "../firebase";
+import { signInWithPopup } from "@firebase/auth";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectUserName,
+  selectUserPhoto,
+  setUserLoginDetails,
+  setSignOutState,
+} from "../features/UserSlice";
+import { useHistory } from "react-router-dom";
+
 const Login = (props) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const userName = useSelector(selectUserName);
+  const userPhoto = useSelector(selectUserPhoto);
+
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        setUser(user);
+        history.push("/home");
+      }
+    });
+  }, [userName]);
+
+  const handleAuth = () => {
+    if (!userName) {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          setUser(result.user);
+          console.log(result);
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    } else if (userName) {
+      auth
+        .signOut()
+        .then(() => {
+          dispatch(setSignOutState());
+          history.push("/");
+        })
+        .catch((err) => alert(err.message));
+    }
+  };
+
+  const setUser = (user) => {
+    dispatch(
+      setUserLoginDetails({
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+      })
+    );
+  };
+
   return (
     <Container>
       <Nav>
@@ -9,7 +66,7 @@ const Login = (props) => {
         </a>
         <div>
           <Join>Join Now</Join>
-          <Signin>Sign In</Signin>
+          <Signin onClick={handleAuth}>Sign In</Signin>
         </div>
       </Nav>
 
@@ -19,7 +76,8 @@ const Login = (props) => {
           <img src="/images/login-hero.svg" alt="" />
         </Hero>
         <Form>
-          <Google>
+          {!userName}
+          <Google onClick={handleAuth}>
             <img src="/images/google.svg" alt="" />
             Signin With google
           </Google>
@@ -34,7 +92,7 @@ const Container = styled.div`
 `;
 
 const Nav = styled.nav`
-  max-width: 1128px;
+  max-width: 80rem;
   margin: auto;
   padding: 12px 0px 16px;
   display: flex;
@@ -146,9 +204,11 @@ const Hero = styled.div`
 
 const Form = styled.div`
   margin-top: 100px;
+
   width: 408px;
   @media (max-width: 768px) {
     margin-top: 20px;
+    width: 100%;
   }
 `;
 const Google = styled.button`
@@ -159,7 +219,7 @@ const Google = styled.button`
   height: 56px;
   width: 100%;
   border-radius: 28px;
-  
+
   vertical-align: middle;
   z-index: 0;
   transition-duration: 167ms;
@@ -171,4 +231,5 @@ const Google = styled.button`
     color: rgb(0, 0, 0, 0.75);
   }
 `;
+
 export default Login;
