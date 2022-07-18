@@ -226,15 +226,15 @@ const PostModal = (props) => {
                   <img src="/images/poll-icon.svg" alt="" />
                 </AssetButton>
 
-                {/* <AssetButton>
+                <AssetButton>
                   <img src="/images/ellipsis.svg" alt="" />
-                </AssetButton> */}
+                </AssetButton>
               </AttachAssets>
-              {/* <ShareComment>
+              <ShareComment>
                 <AssetButton>
                   <img src="/images/sharemsg.svg" alt="" /> <h2>Anyone</h2>
                 </AssetButton>
-              </ShareComment> */}
+              </ShareComment>
               <PostButton
                 onClick={uploadPost}
                 disabled={!selectedfile ? true : false}

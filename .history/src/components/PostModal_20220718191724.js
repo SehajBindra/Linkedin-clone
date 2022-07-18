@@ -79,9 +79,10 @@ const PostModal = (props) => {
       }
     );
 
-    Setopen(false);
     setLoading(false);
     setSelectedfile(null);
+    Setopen(false);
+    handleclick();
   };
 
   const addImageToPost = (e) => {
@@ -132,7 +133,7 @@ const PostModal = (props) => {
             </Header>
             <SharedContent>
               <UserInfo>
-                <img src="/images/user.svg" alt="" />
+                <img src={userPhoto} alt="" />
                 <span> {userName}</span>
               </UserInfo>
 
@@ -225,15 +226,15 @@ const PostModal = (props) => {
                   <img src="/images/poll-icon.svg" alt="" />
                 </AssetButton>
 
-                <AssetButton>
+                {/* <AssetButton>
                   <img src="/images/ellipsis.svg" alt="" />
-                </AssetButton>
+                </AssetButton> */}
               </AttachAssets>
-              <ShareComment>
+              {/* <ShareComment>
                 <AssetButton>
                   <img src="/images/sharemsg.svg" alt="" /> <h2>Anyone</h2>
                 </AssetButton>
-              </ShareComment>
+              </ShareComment> */}
               <PostButton
                 onClick={uploadPost}
                 disabled={!selectedfile ? true : false}
@@ -262,9 +263,9 @@ const Container = styled.div`
 
 const Content = styled.div`
   width: 100%;
-  max-width: 552px;
+  max-width: 400px;
   background-color: white;
-  max-height: 90%;
+  max-height: 80%;
   overflow: initial;
   border-radius: 5px;
   position: relative;

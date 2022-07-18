@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { selectUserName, selectUserPhoto } from "../features/UserSlice";
 import { useSelector } from "react-redux";
 import ReactPlayer from "react-player";
+import { useRecoilState } from "recoil";
 import { useRef } from "react";
 
 import { db, storage } from "../firebase";
@@ -14,17 +15,19 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { ref, getDownloadURL, uploadString } from "firebase/storage";
+import { modalState } from "../atoms/modalAtom";
 
 const PostModal = (props) => {
   const userPhoto = useSelector(selectUserPhoto);
   const [showModal, setShowModal] = useState("close");
-
+  const [open, Setopen] = useRecoilState(modalState);
   const userName = useSelector(selectUserName);
   const [shareImage, setShareImage] = useState("");
   const [editorText, setEditorText] = useState("");
   const [videoLink, setVideoLink] = useState("");
   const [assetArea, setAssetArea] = useState("");
   const captionRef = useRef(null);
+
   const filePickerRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [selectedfile, setSelectedfile] = useState(null);
@@ -78,7 +81,8 @@ const PostModal = (props) => {
 
     setLoading(false);
     setSelectedfile(null);
-    setShowModal("close");
+    Setopen(false);
+    handleclick();
   };
 
   const addImageToPost = (e) => {
@@ -129,7 +133,7 @@ const PostModal = (props) => {
             </Header>
             <SharedContent>
               <UserInfo>
-                <img src="/images/user.svg" alt="" />
+                <img src={userPhoto} alt="" />
                 <span> {userName}</span>
               </UserInfo>
 
@@ -226,11 +230,11 @@ const PostModal = (props) => {
                   <img src="/images/ellipsis.svg" alt="" />
                 </AssetButton>
               </AttachAssets>
-              <ShareComment>
+              {/* <ShareComment>
                 <AssetButton>
                   <img src="/images/sharemsg.svg" alt="" /> <h2>Anyone</h2>
                 </AssetButton>
-              </ShareComment>
+              </ShareComment> */}
               <PostButton
                 onClick={uploadPost}
                 disabled={!selectedfile ? true : false}
@@ -259,9 +263,9 @@ const Container = styled.div`
 
 const Content = styled.div`
   width: 100%;
-  max-width: 552px;
+  max-width: 400px;
   background-color: white;
-  max-height: 90%;
+  max-height: 80%;
   overflow: initial;
   border-radius: 5px;
   position: relative;
