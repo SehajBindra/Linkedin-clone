@@ -107,7 +107,12 @@ const Header = (props) => {
               </a>
             </NavList>
 
-            
+            <NavList>
+              <a>
+                <img src="/images/nav-notifications.svg" alt="" />
+                <span> Notifications</span>
+              </a>
+            </NavList>
 
             <User>
               <a>
@@ -121,13 +126,6 @@ const Header = (props) => {
                 <a>Sign out</a>
               </SignOut>
             </User>
-
-            <NavList>
-              <a>
-                <img src="/images/nav-notifications.svg" alt="" />
-                <span> Notifications</span>
-              </a>
-            </NavList>
 
             <Work>
               <a>

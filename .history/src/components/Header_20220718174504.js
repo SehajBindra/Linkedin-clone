@@ -86,12 +86,12 @@ const Header = (props) => {
               </a>
             </NavList>
 
-            <NavList>
+            {/* <NavList>
               <a>
                 <img src="/images/nav-network.svg" alt="" />
                 <span>My Network</span>
               </a>
-            </NavList>
+            </NavList> */}
 
             <NavList>
               <a>
@@ -107,7 +107,12 @@ const Header = (props) => {
               </a>
             </NavList>
 
-            
+            <NavList>
+              <a>
+                <img src="/images/nav-notifications.svg" alt="" />
+                <span> Notifications</span>
+              </a>
+            </NavList>
 
             <User>
               <a>
@@ -121,13 +126,6 @@ const Header = (props) => {
                 <a>Sign out</a>
               </SignOut>
             </User>
-
-            <NavList>
-              <a>
-                <img src="/images/nav-notifications.svg" alt="" />
-                <span> Notifications</span>
-              </a>
-            </NavList>
 
             <Work>
               <a>
@@ -272,7 +270,7 @@ const NavList = styled.li`
     }
 
       @media (max-width: 768px) {
-        min-width: 70px;
+        min-width: 60px;
         line-height: 1.5;
         min-height: 52px;
         font-size: 12px;

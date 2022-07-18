@@ -26,15 +26,8 @@ const Home = (props) => {
 };
 
 const Container = styled.div`
-
- padding: 40px;
-  max-width: 100%;
-@media (max-width: 768px) {
   padding: 0;
   max-width: 100%;
-  }
-
- 
 `;
 
 const Section = styled.section`
