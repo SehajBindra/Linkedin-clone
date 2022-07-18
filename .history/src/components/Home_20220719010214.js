@@ -40,7 +40,7 @@ const Container = styled.div`
 const Section = styled.section`
   min-height: 50px;
   text-decoration: underline;
-  padding: 24px 0;
+  padding: 20px 0;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -49,7 +49,7 @@ const Section = styled.section`
 
   h5 {
     color: #0a66c2;
-    font-size: 16px;
+    font-size: 14px;
 
     a {
       font-weight: 700;

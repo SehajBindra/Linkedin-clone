@@ -49,7 +49,7 @@ const Section = styled.section`
 
   h5 {
     color: #0a66c2;
-    font-size: 16px;
+    font-size: 18px;
 
     a {
       font-weight: 700;
