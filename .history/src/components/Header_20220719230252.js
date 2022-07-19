@@ -111,9 +111,9 @@ const Header = (props) => {
 
             <User>
               <a>
-                <img onClick={handleAuth} src={userPhoto} alt="" />
+                <img src={userPhoto} alt="" />
                 <span>Me</span>
-                {/* <img src="/images/down-icon.svg" alt="" /> */}
+                <img src="/images/down-icon.svg" alt="" />
               </a>
 
               <SignOut onClick={handleAuth}>
@@ -133,7 +133,7 @@ const Header = (props) => {
               <a>
                 <img src="/images/nav-work.svg" alt="" />
                 <span> Work </span>
-                {/* <img src="/images/down-icon.svg" alt="" /> */}
+                <img src="/images/down-icon.svg" alt="" />
               </a>
             </Work>
           </NavListWrap>

@@ -111,9 +111,9 @@ const Header = (props) => {
 
             <User>
               <a>
-                <img onClick={handleAuth} src={userPhoto} alt="" />
+                <img src={userPhoto} alt="" />
                 <span>Me</span>
-                {/* <img src="/images/down-icon.svg" alt="" /> */}
+                <img src="/images/down-icon.svg" alt="" />
               </a>
 
               <SignOut onClick={handleAuth}>
@@ -133,7 +133,7 @@ const Header = (props) => {
               <a>
                 <img src="/images/nav-work.svg" alt="" />
                 <span> Work </span>
-                {/* <img src="/images/down-icon.svg" alt="" /> */}
+                <img src="/images/down-icon.svg" alt="" />
               </a>
             </Work>
           </NavListWrap>
@@ -269,11 +269,6 @@ const NavList = styled.li`
       display: flex;
       align-items: center;
       text-align: center;
-     
-
-      @media (max-width: 768px) {
-        display: none;
-      }
     }
 
       @media (max-width: 768px) {
@@ -318,8 +313,8 @@ const User = styled(NavList)`
     border-radius: 50%;
   }
   a > img {
-    width: 32px;
-    height: 32px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
   }
 
