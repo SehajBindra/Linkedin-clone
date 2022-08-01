@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import { Helmet } from "react-helmet";
 
 import { auth, provider } from "./firebase";
 import { signInWithPopup } from "@firebase/auth";
@@ -14,11 +15,11 @@ import {
   setUserLoginDetails,
   setSignOutState,
 } from "./features/UserSlice";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 function App() {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
 
@@ -26,7 +27,7 @@ function App() {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUser(user);
-        history.push("/home");
+        // history.push("/home");
       }
     });
   }, [userName]);
@@ -46,7 +47,7 @@ function App() {
         .signOut()
         .then(() => {
           dispatch(setSignOutState());
-          history.push("/");
+          // history.push("/");
         })
         .catch((err) => alert(err.message));
     }
@@ -64,6 +65,12 @@ function App() {
 
   return (
     <div className="App">
+      <Helmet>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+      </Helmet>
       <Router>
         {!userName ? (
           <Login />

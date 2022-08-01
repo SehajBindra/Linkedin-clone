@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import { Helmet } from "react-helmet";
 
 import { auth, provider } from "./firebase";
 import { signInWithPopup } from "@firebase/auth";
@@ -64,6 +65,12 @@ function App() {
 
   return (
     <div className="App">
+      <Helmet>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+      </Helmet>
       <Router>
         {!userName ? (
           <Login />
