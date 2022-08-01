@@ -377,7 +377,6 @@ const SharedImg = styled.div`
   img {
     object-fit: contain;
     width: 100%;
-    pointer-events: none;
     height: 100%;
   }
 `;
